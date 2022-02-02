@@ -9,36 +9,62 @@
       href="https://fonts.googleapis.com/css2?family=Dongle&family=Nunito:wght@300;400;700&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
     <title>Document</title>
   </head>
-  <body>
-
-    <div class="display">
-      <div class="print">
-        [BINARY:11111111] [HEX:FF]
+  <body onload="loadAll()">
+    <div class="TOTAL">
+      <div class="total">Total :</div>
+      <div class="total" id="totalOutput"></div>
+      <div class="total" id="totalwithd"></div>
+      <div class="hedding">
+        <div class="item1">ORDER</div>
+        <div class="item2">BOUNCE</div>
       </div>
     </div>
-    
-    <div class="sevenSeg">
-      <div class="digit">
-        <button class="s" id="a">7</button>
-        <div id="flexing">
-          <button class="s" id="f">2</button>
-          <button class="s" id="b">6</button>
+
+    <div id="container"></div>
+    <div class="container2">
+      <div class="maininfo">
+        <div class="info">
+          <label for="name">Name :</label>
+          <input class="name" type="text" value="" autocomplete="off" />
         </div>
-        <button class="s" id="g">1</button>
-        <div id="flexing">
-          <button class="s" id="e">3</button>
-          <button class="s" id="c">5</button>
+        <div class="info">
+          <label for="price">Price :</label>
+          <input class="price" type="number" value="" autocomplete="off" />
         </div>
-        <button class="s" id="d">4</button>
-        <button class="s" id="h">0</button>
+      </div>
+      <div class="sub">
+        <button id="submit">Add</button>
       </div>
     </div>
-    <div id="reset">
-      <button id="r_btn">Reset</button>
-    </div>
 
+    <div class="DAMAGE">
+      <div class="damageLabel">Damage :</div>
+      <div class="damageLabel" id="dtotalOutput">0</div>
+    </div>
+    <div id="damage"></div>
+    <div class="container2">
+      <div class="maininfo">
+        <div class="info">
+          <label for="dname">Name :</label>
+          <input class="dname" type="text" value="" autocomplete="off" />
+        </div>
+        <div class="info">
+          <label for="dprice">Price :</label>
+          <input class="dprice" type="number" value="" autocomplete="off" />
+        </div>
+      </div>
+      <div class="sub">
+        <button id="dsubmit">Add</button>
+      </div>
+    </div>
     <script
       src="https://code.jquery.com/jquery-3.6.0.min.js"
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="

@@ -1,16 +1,56 @@
 * {
   margin: 0;
   padding: 0;
-  font-size: 30px;
+  font-size: 25px;
   font-family: "Dongle", sans-serif;
 }
 
 #container {
-  margin: 10px;
+  margin: 0px 5px;
   display: flex;
   flex-wrap: wrap;
-  height: 100vh;
+  height: 100%;
 }
+.container2 {
+  border: 5px solid turquoise;
+  display: flex;
+  align-items:center;
+  justify-content:start;
+  margin: 10px 20px;
+  height: 100px;
+  background-color: aqua;
+}
+.info label {
+  text-align: center;
+  display: inline-block;
+  min-width: 100px ;
+  height: 25px;
+}
+.info input {
+  width: 200px;
+  font-size: 15px;
+  text-align: center;
+}
+
+.info input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+.sub{
+  margin-left:30px;
+}
+#submit,#dsubmit{
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.2);
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+}
+#submit:hover,#dsubmit:hover{
+  box-shadow: inset 0px 0px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+
 .box {
   height: 50px;
   background-color: whitesmoke;
@@ -22,18 +62,39 @@
 
 .label {
   font-size: 15px;
-  width: 160px;
+  width: 180px;
   text-align: center;
 }
 
-.input {
+.input,.bounce,.dinput,.dbounce {
   height: 25px;
   margin-left: 10px;
   text-align: center;
-  width: 80px;
+  width: 60px;
 }
 
-.input::-webkit-inner-spin-button {
+.hedding{
+  background-color: aqua;
+  height: 40px;
+}
+
+.item1,.item2{
+  font-size: 30px;
+  position: absolute;
+  bottom: -5px;
+  font-style: italic;
+}
+.item1{
+  left: 195px;
+}
+.item2{
+  left: 282px;
+}
+
+.bounce::-webkit-inner-spin-button,.input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+.dinput::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 .index {
@@ -44,7 +105,7 @@
   margin-left: 10px;
 }
 
-.multiply {
+.multiply,.dmultiply {
   width: 30px;
   margin-left: 10px;
 }
@@ -62,6 +123,23 @@
   top: 0;
   padding: 10px;
 }
-.total{
+.total {
+  font-size: 50px;
+}
+
+.add {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.DAMAGE{
+  display: flex;
+  justify-content: center;
+  background-color: turquoise;
+  text-align: center;
+  padding: 10px;
+}
+.damageLabel{
   font-size: 50px;
 }

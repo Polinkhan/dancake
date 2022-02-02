@@ -11,13 +11,34 @@
     />
     <title>Document</title>
   </head>
-  <body onload="loadAll()">
-    <div class="TOTAL">
-      <div class="total">Total :</div>
-      <div class="total" id="totalOutput"></div>
+  <body>
+
+    <div class="display">
+      <div class="print">
+        [BINARY:11111111] [HEX:FF]
+      </div>
+    </div>
+    
+    <div class="sevenSeg">
+      <div class="digit">
+        <button class="s" id="a">7</button>
+        <div id="flexing">
+          <button class="s" id="f">2</button>
+          <button class="s" id="b">6</button>
+        </div>
+        <button class="s" id="g">1</button>
+        <div id="flexing">
+          <button class="s" id="e">3</button>
+          <button class="s" id="c">5</button>
+        </div>
+        <button class="s" id="d">4</button>
+        <button class="s" id="h">0</button>
+      </div>
+    </div>
+    <div id="reset">
+      <button id="r_btn">Reset</button>
     </div>
 
-    <div id="container"></div>
     <script
       src="https://code.jquery.com/jquery-3.6.0.min.js"
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="

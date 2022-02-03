@@ -145,15 +145,14 @@ margin-left: 150px;
   text-align: center;
 }
 .TOTAL {
-  margin: 5px 0px 2px 0px;
+  height: 90px;
   display: flex;
   justify-content: center;
   background-color: turquoise;
-  text-align: center;
+  align-items: center;
   position: -webkit-sticky;
   position: sticky;
   top: 0px;
-  padding: 10px;
 }
 .total {
   font-size: 50px;

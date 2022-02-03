@@ -5,6 +5,39 @@
   font-family: "Dongle", sans-serif;
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
+.shopInfo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.shopName{
+  margin: 5px 0px;
+  padding: 15px 0px;
+  font-size: 1.8rem;
+  text-align: center;
+  width: 100%;
+  background-color:rgba(250,128,114,0.8);
+  opacity: 10;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+}
+.shopInfo p{
+  margin: 0px 5px;
+  text-align: center;
+  width: 100%;
+  background-color: whitesmoke;
+}
+.shopInfo p a{
+  text-decoration: none;
+  margin-left: 5px;
+}
+
 #container {
   margin: 0px 5px;
   display: flex;
@@ -76,6 +109,10 @@
 .hedding{
   background-color: aqua;
   height: 40px;
+  position: relative;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 90px;
 }
 
 .item1,.item2{
@@ -106,21 +143,18 @@
 }
 
 .multiply,.dmultiply {
-  width: 30px;
-  margin-left: 10px;
-}
-
-.display {
-  margin-left: 5px;
+  width: 35px;
+  text-align: center;
 }
 .TOTAL {
+  margin: 5px 0px 2px 0px;
   display: flex;
   justify-content: center;
   background-color: turquoise;
   text-align: center;
   position: -webkit-sticky;
   position: sticky;
-  top: 0;
+  top: 0px;
   padding: 10px;
 }
 .total {
@@ -139,7 +173,48 @@
   background-color: turquoise;
   text-align: center;
   padding: 10px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: -800px;
 }
 .damageLabel{
   font-size: 50px;
+}
+
+#footer{
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color:rgba(250,128,114,0.8);
+}
+.gotop{
+  text-align: center;
+}
+.gotop a{
+  text-decoration: none;
+  color: black;
+}
+.gotop a i{
+  padding: 5px 10px;
+  font-size: 50px;
+  animation: jump .5s linear alternate infinite;
+  
+}
+
+#footer{
+  margin: 5px 0px;
+}
+
+#footer a{
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  margin: 0px 10px;
+  color:rgb(24, 24, 24);
+}
+
+@keyframes jump {
+  0%   {transform: translate3d(0,-15%,0)}
+  100% {transform: translate3d(0,15%,0)}
 }

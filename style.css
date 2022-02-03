@@ -5,35 +5,35 @@
   font-family: "Dongle", sans-serif;
 }
 
-html{
+html {
   scroll-behavior: smooth;
 }
 
-.shopInfo{
+.shopInfo {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
 }
-.shopName{
+.shopName {
   margin: 5px 0px;
   padding: 15px 0px;
   font-size: 1.8rem;
   text-align: center;
   width: 100%;
-  background-color:rgba(250,128,114,0.8);
+  background-color: rgba(250, 128, 114, 0.8);
   opacity: 10;
   position: -webkit-sticky;
   position: sticky;
   top: 0px;
 }
-.shopInfo p{
+.shopInfo p {
   margin: 0px 5px;
   text-align: center;
   width: 100%;
   background-color: whitesmoke;
 }
-.shopInfo p a{
+.shopInfo p a {
   text-decoration: none;
   margin-left: 5px;
 }
@@ -47,8 +47,8 @@ html{
 .container2 {
   border: 5px solid turquoise;
   display: flex;
-  align-items:center;
-  justify-content:start;
+  align-items: center;
+  justify-content: start;
   margin: 10px 20px;
   height: 100px;
   background-color: aqua;
@@ -56,7 +56,7 @@ html{
 .info label {
   text-align: center;
   display: inline-block;
-  min-width: 100px ;
+  min-width: 100px;
   height: 25px;
 }
 .info input {
@@ -68,10 +68,11 @@ html{
 .info input::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
-.sub{
-  margin-left:30px;
+.sub {
+  margin-left: 30px;
 }
-#submit,#dsubmit{
+#submit,
+#dsubmit {
   border: none;
   border-radius: 50%;
   box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.2);
@@ -79,10 +80,10 @@ html{
   width: 50px;
   cursor: pointer;
 }
-#submit:hover,#dsubmit:hover{
+#submit:hover,
+#dsubmit:hover {
   box-shadow: inset 0px 0px 5px 5px rgba(0, 0, 0, 0.2);
 }
-
 
 .box {
   background-color: whitesmoke;
@@ -99,14 +100,18 @@ html{
   text-align: center;
 }
 
-.input,.bounce,.dinput,.dbounce {
+.input,
+.bounce,
+.dinput,
+.dbounce {
   height: 25px;
   margin-left: 10px;
   text-align: center;
   width: 50px;
 }
 
-.hedding{
+.hedding {
+  margin: 5px 0px 2px;
   background-color: aqua;
   display: flex;
   align-items: center;
@@ -115,18 +120,20 @@ html{
   top: 90px;
 }
 
-.item1,.item2{
+.item1,
+.item2 {
   font-size: 30px;
   font-style: italic;
 }
-.item1{
-margin-left: 150px;
+.item1 {
+  margin-left: 150px;
 }
-.item2{
+.item2 {
   margin-left: 20px;
 }
 
-.bounce::-webkit-inner-spin-button,.input::-webkit-inner-spin-button {
+.bounce::-webkit-inner-spin-button,
+.input::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 .dinput::-webkit-inner-spin-button {
@@ -140,7 +147,8 @@ margin-left: 150px;
   margin-left: 10px;
 }
 
-.multiply,.dmultiply {
+.multiply,
+.dmultiply {
   width: 35px;
   text-align: center;
 }
@@ -164,67 +172,67 @@ margin-left: 150px;
   align-items: center;
 }
 
-.DAMAGE{
+.DAMAGE {
   display: flex;
   justify-content: center;
   background-color: turquoise;
   text-align: center;
   padding: 10px;
-  position: -webkit-sticky;
-  position: sticky;
-  top: -800px;
 }
-.damageLabel{
+.damageLabel {
   font-size: 50px;
 }
 
-.dlt_item{
+.dlt_item {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 10px;
   margin-left: 50px;
 }
-.dlt_btn{
+.dlt_btn {
   border-radius: 5px;
   padding: 10px;
   background-color: red;
 }
 
-#footer{
+#footer {
   height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color:rgba(250,128,114,0.8);
+  background-color: rgba(250, 128, 114, 0.8);
 }
-.gotop{
+.gotop {
   text-align: center;
 }
-.gotop a{
+.gotop a {
   text-decoration: none;
   color: black;
 }
-.gotop a i{
+.gotop a i {
   padding: 5px 10px;
   font-size: 50px;
-  animation: jump .5s linear alternate infinite;
-  
+  animation: jump 0.5s linear alternate infinite;
 }
 
-#footer{
+#footer {
   margin: 5px 0px;
 }
 
-#footer a{
+#footer a {
   text-decoration: none;
   display: flex;
   align-items: center;
   margin: 0px 10px;
-  color:rgb(24, 24, 24);
+  color: rgb(24, 24, 24);
 }
 
 @keyframes jump {
-  0%   {transform: translate3d(0,-15%,0)}
-  100% {transform: translate3d(0,15%,0)}
+  0% {
+    transform: translate3d(0, -15%, 0);
+  }
+  100% {
+    transform: translate3d(0, 15%, 0);
+  }
 }

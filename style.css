@@ -181,6 +181,19 @@ html{
   font-size: 50px;
 }
 
+.dlt_item{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  margin-left: 50px;
+}
+.dlt_btn{
+  border-radius: 5px;
+  padding: 10px;
+  background-color: red;
+}
+
 #footer{
   height: 50px;
   display: flex;

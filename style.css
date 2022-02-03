@@ -57,10 +57,10 @@
   display: flex;
   align-items: center;
   width: 100%;
+  height: 70px;
 }
 
 .label {
-  padding: 5px 0px;
   font-size: 15px;
   width: 140px;
   text-align: center;
@@ -85,10 +85,10 @@
   font-style: italic;
 }
 .item1{
-  left: 195px;
+  left: 152px;
 }
 .item2{
-  left: 282px;
+  left: 230px;
 }
 
 .bounce::-webkit-inner-spin-button,.input::-webkit-inner-spin-button {

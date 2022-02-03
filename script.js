@@ -4,7 +4,7 @@ let dmultiply = [];
 let dtotalValue = [];
 let index = 0;
 let multiply = [
-  190, 190, 24, 24, 196, 196, 125, 125, 108, 84, 35, 108, 108, 100, 100, 100, 100, 50, 50, 30, 30, 30, 10, 10, 10, 10, 15, 15, 15, 35, 100, 100, 100,
+  190, 190, 24.5, 24.5, 196, 196, 125, 125, 108, 84, 35, 108, 108, 100, 100, 100, 100, 50, 50, 30, 30, 30, 10, 10, 10, 10, 15, 15, 15, 33, 100, 100, 100,
 ];
 let totalValue = [];
 
@@ -46,20 +46,21 @@ let name = [
 var html = ``;
 let newdiv = ``;
 let htmlbounce = `<div class="x">-</div><input type="number" value="0" autocomplete="off" class="bounce">`;
+let dlt = `<div class="dlt_item"><button class="dlt_btn"></button></div>`
 
-function builtHtml(name,multiply,cname, cprice, index, bounce) {
+function builtHtml(name,multiply,cname, cprice, index, bounce,dltbtn) {
   return `<div class="box"><label for="" class="label">${cname[index]}</label>
 <input type="number" value="" autocomplete="off" class="${name}">
 ${bounce}<div class="x">x</div><div class="index">${index}</div>
 <div class="${multiply}">${cprice[index]}</div>
-<div class="display">= 0</div></div>`;
+<div class="display">= 0</div>${dltbtn}</div>`;
 }
 
 function loadAll() {
   for (let i = 0; i < row; i++) {
     totalValue[i] = 0;
     dtotalValue[i] = 0;
-    html += builtHtml("input","multiply",name, multiply, i, htmlbounce);
+    html += builtHtml("input","multiply",name, multiply, i, htmlbounce,``);
   }
   document.getElementById("container").innerHTML = html;
   Start();
@@ -124,6 +125,12 @@ function dStart() {
     $(".dinput").keyup(function () {
       dsetValue(this);
     });
+    $(".dlt_btn").click(function(){
+      this.parentNode.parentNode.style.display = "none";
+      let index = this.parentNode.parentNode.getElementsByClassName("index")[0].innerText;
+      dtotalValue[index] = 0;
+      dfulltotal();
+    });
   });
 }
 
@@ -157,7 +164,8 @@ $(document).ready(function () {
       name,
       multiply,
       row,
-      htmlbounce
+      htmlbounce,
+      ``
     );
     row++;
     Start();
@@ -166,8 +174,8 @@ $(document).ready(function () {
     location.href="#dsubmit";
     dname[index] = dnewName.value;
     dmultiply[index] = parseInt(dnewPrice.value);
-    document.getElementById("damage").innerHTML += builtHtml("dinput","dmultiply",dname,dmultiply, index, ``);
+    document.getElementById("damage").innerHTML += builtHtml("dinput","dmultiply",dname,dmultiply, index,``, dlt);
     index++;
     dStart();
-  });
+  })
 });

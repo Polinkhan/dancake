@@ -4,7 +4,7 @@ let dmultiply = [];
 let dtotalValue = [];
 let index = 0;
 let multiply = [
-  190, 190, 24, 24, 196, 196, 125, 125, 108, 84, 35, 108, 108, 100, 100, 100, 100, 50, 50, 30, 30, 30, 10, 10, 10, 10, 15, 15, 15, 35, 1, 1, 1,
+  190, 190, 24, 24, 196, 196, 125, 125, 108, 84, 35, 108, 108, 100, 100, 100, 100, 50, 50, 30, 30, 30, 10, 10, 10, 10, 15, 15, 15, 35, 100, 100, 100,
 ];
 let totalValue = [];
 
@@ -52,7 +52,7 @@ function builtHtml(name,multiply,cname, cprice, index, bounce) {
 <input type="number" value="" autocomplete="off" class="${name}">
 ${bounce}<div class="x">x</div><div class="index">${index}</div>
 <div class="${multiply}">${cprice[index]}</div>
-<div class="display"> = 0</div></div>`;
+<div class="display">= 0</div></div>`;
 }
 
 function loadAll() {
@@ -163,6 +163,7 @@ $(document).ready(function () {
     Start();
   });
   $("#dsubmit").click(function () {
+    location.href="#dsubmit";
     dname[index] = dnewName.value;
     dmultiply[index] = parseInt(dnewPrice.value);
     document.getElementById("damage").innerHTML += builtHtml("dinput","dmultiply",dname,dmultiply, index, ``);

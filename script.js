@@ -57,6 +57,7 @@ ${bounce}<div class="x">x</div><div class="index">${index}</div>
 }
 
 function loadAll() {
+  document.getElementById("date").innerText = (new Date().toLocaleDateString());
   for (let i = 0; i < row; i++) {
     totalValue[i] = 0;
     dtotalValue[i] = 0;

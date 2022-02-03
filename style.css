@@ -108,8 +108,8 @@ html{
 
 .hedding{
   background-color: aqua;
-  height: 40px;
-  position: relative;
+  display: flex;
+  align-items: center;
   position: -webkit-sticky;
   position: sticky;
   top: 90px;
@@ -117,15 +117,13 @@ html{
 
 .item1,.item2{
   font-size: 30px;
-  position: absolute;
-  bottom: -5px;
   font-style: italic;
 }
 .item1{
-  left: 152px;
+margin-left: 150px;
 }
 .item2{
-  left: 230px;
+  margin-left: 20px;
 }
 
 .bounce::-webkit-inner-spin-button,.input::-webkit-inner-spin-button {

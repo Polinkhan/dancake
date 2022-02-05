@@ -66,6 +66,7 @@ function loadAll() {
     dtotalValue[i] = 0;
     html += builtHtml("input","multiply",name, multiply, i, htmlbounce,``);
   }
+  sname.innerHTML += `<option value="অন্যান্য">অন্যান্য</option>`;
   document.getElementById("container").innerHTML = html;
   Start();
 }
@@ -182,7 +183,7 @@ $(document).ready(function () {
   });
   $("#dsubmit").click(function () {
     location.href="#dsubmit";
-    dname[index] = $(".dname").val();
+    dname[index] = $("#dname").val();
     dmultiply[index] = parseInt(dnewPrice.value);
     document.getElementById("damage").innerHTML += builtHtml("dinput","dmultiply",dname,dmultiply, index,``, dlt);
     console.log();

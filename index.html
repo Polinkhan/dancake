@@ -15,30 +15,48 @@
       integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
       crossorigin="anonymous"
     />
-    <title>Document</title>
+    <title>Good Day (Dan-Cake)</title>
   </head>
   <body onload="loadAll()">
     <header id="top" class="shopInfo">
-      <h2 class="shopName">
-        Good Day Cafe & Restaurent
-      </h2>
+      <h2 class="shopName">Good Day Cafe & Restaurent</h2>
       <p>Tusahrdhara R/A, Saddam Market, Dhaka</p>
       <p>Dealer DanFood Ltd</p>
-      <p>Number :<a href="tel:01730062298">01730062298 <span>,</span></a><a href="tel:01700676354">01700676354</a></p>
+      <p>
+        Number :<a href="tel:01730062298">01730062298 <span>,</span></a
+        ><a href="tel:01700676354">01700676354</a>
+      </p>
       <p id="date"></p>
     </header>
     <div class="TOTAL">
-      <div class="total">Total :</div>
-      <div class="total" id="totalOutput"></div>
-      <div class="total" id="totalwithd"></div>
+      <div class="tOrder">
+        <div class="total">Total-Order :</div>
+        <div class="total2" id="totalOrder">0</div>
+      </div>
+      <div class="tBounce">
+        <div class="total">Total-Bounce :</div>
+        <div class="total2" id="totalBounce">0</div>
+      </div>
+      <div class="tDamage">
+        <div class="total">Total-Damage :</div>
+        <div class="total2" id="totalDamage">0</div>
+      </div>
+      <div class="fTotal">
+        <div class="total">Full-Total :</div>
+        <div class="total2" id="fullTotal">0</div>
+      </div>
+      <!-- <div class="total" id="totalwithd"></div> -->
     </div>
     <div class="hedding">
-      <div class="item1">ORDER</div>
-      <div class="item2">BOUNCE</div>
+      <div class="item" id="iname">Name</div>
+      <div class="item" id="iorder">Order</div>
+      <div class="item" id="ibounce">Bounce</div>
+      <div class="item" id="iprice">Price</div>
+      <div class="item" id="itotal">Total</div>
     </div>
 
     <div id="container"></div>
-    <div class="container2">
+    <div class="addBox">
       <div class="maininfo">
         <div class="info">
           <label for="name">Name :</label>
@@ -59,11 +77,11 @@
       <div class="damageLabel" id="dtotalOutput">0</div>
     </div>
     <div id="damage"></div>
-    <div class="container2">
+    <div class="addBox">
       <div class="maininfo">
         <div class="info">
           <label for="dname">Name :</label>
-          <input class="dname" type="text" value="" autocomplete="off" />
+          <select id="dname"></select>
         </div>
         <div class="info">
           <label for="dprice">Price :</label>
@@ -71,14 +89,18 @@
         </div>
       </div>
       <div class="sub">
-        <button id="dsubmit"> Add</button>
+        <button id="dsubmit">Add</button>
       </div>
     </div>
 
-    <div class="gotop"><a href="#top"><i class="fas fa-chevron-up"></i></a></div>
+    <div class="gotop">
+      <a href="#top"><i class="fas fa-chevron-up"></i></a>
+    </div>
 
     <footer id="footer">
-     <a href="https://www.facebook.com/gooddaytd"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.facebook.com/gooddaytd"
+        ><i class="fab fa-facebook"></i
+      ></a>
       <a href="#"><i class="fab fa-facebook-messenger"></i></a>
     </footer>
     <script

@@ -7,7 +7,8 @@ let multiply = [
   190, 190, 24.5, 24.5, 196, 196, 125, 125, 108, 84, 35, 108, 108, 100, 100, 100, 100, 50, 50, 30, 30, 30, 10, 10, 10, 10, 15, 15, 15, 33, 100, 100, 100,
 ];
 let totalValue = [];
-
+let totalOrder = [];
+let totalBounce = [];
 let name = [
   "ভ্যানিলা মাফিন (৩০গ্রাম)",
   "চকলেট মাফিন (৩০গ্রাম)",
@@ -45,7 +46,7 @@ let name = [
 ];
 var html = ``;
 let newdiv = ``;
-let htmlbounce = `<div class="x">-</div><input type="number" value="0" autocomplete="off" class="bounce">`;
+let htmlbounce = `<div class="x">-</div><input type="number" value="" autocomplete="off" class="bounce">`;
 let dlt = `<div class="dlt_item"><button class="dlt_btn"></button></div>`
 
 function builtHtml(name,multiply,cname, cprice, index, bounce,dltbtn) {
@@ -58,7 +59,9 @@ ${bounce}<div class="x">x</div><div class="index">${index}</div>
 
 function loadAll() {
   document.getElementById("date").innerText = (new Date().toLocaleDateString());
+  let sname = document.getElementById("dname");
   for (let i = 0; i < row; i++) {
+    sname.innerHTML += `<option value="${name[i]}">${name[i]}</option>`;
     totalValue[i] = 0;
     dtotalValue[i] = 0;
     html += builtHtml("input","multiply",name, multiply, i, htmlbounce,``);
@@ -69,19 +72,26 @@ function loadAll() {
 
 function fulltotal() {
   let temp = 0;
-  for (let i = 0; i < row; i++) {
-    temp += totalValue[i];
+  let dtemp = 0;
+  let order = 0;
+  let bounce = 0;
+  for(let i of totalValue){
+    if(i!=null)temp+=i;
   }
-  let d = document.getElementById("dtotalOutput").innerHTML;
-  document.getElementById("totalOutput").innerHTML = `${temp} - ${d} =${temp-d}`;
-}
-function dfulltotal() {
-  let temp = 0;
-  for (let i = 0; i < index; i++) {
-    temp += dtotalValue[i];
+  for(let i of totalBounce){
+    if(i!=null)bounce+=i;
   }
-  document.getElementById("dtotalOutput").innerHTML = temp;
-  fulltotal();
+  for(let i of totalOrder){
+    if(i!=null)order+=i;
+  }
+  for(let i of dtotalValue){
+    if(i!=null)dtemp+=i;
+  }
+  console.log(totalOrder);
+  document.getElementById("totalOrder").innerText = order;
+  document.getElementById("totalBounce").innerText = bounce;
+  document.getElementById("totalDamage").innerText = dtemp;
+  document.getElementById("fullTotal").innerText = temp - dtemp;
 }
 
 function setValue(point, cname) {
@@ -92,9 +102,13 @@ function setValue(point, cname) {
   let total;
   if (cname == "bounce") {
     total = (point.value - inVal) * multi;
+    totalOrder[index] = point.value*multi;
+    console.log("order");
   }
   if (cname == "input") {
     total = (inVal - point.value) * multi;
+    totalBounce[index] = point.value*multi;
+    console.log("bounce");
   }
   totalValue[index] = total;
   output.innerText = " = " + total;
@@ -108,7 +122,7 @@ function dsetValue(point) {
   total = point.value * multi;
   dtotalValue[index] = total;
   output.innerText = " = " + total;
-  dfulltotal();
+  fulltotal();
 }
 
 function Start() {
@@ -130,7 +144,7 @@ function dStart() {
       this.parentNode.parentNode.style.display = "none";
       let index = this.parentNode.parentNode.getElementsByClassName("index")[0].innerText;
       dtotalValue[index] = 0;
-      dfulltotal();
+      fulltotal();
     });
   });
 }
@@ -147,11 +161,6 @@ $(document).ready(function () {
   });
   $(".price").keyup(function () {
     newPrice = this;
-  });
-  $(".dname").keyup(function () {
-    if (this.value != "") {
-      dnewName = this;
-    }
   });
   $(".dprice").keyup(function () {
     dnewPrice = this;
@@ -173,9 +182,10 @@ $(document).ready(function () {
   });
   $("#dsubmit").click(function () {
     location.href="#dsubmit";
-    dname[index] = dnewName.value;
+    dname[index] = $(".dname").val();
     dmultiply[index] = parseInt(dnewPrice.value);
     document.getElementById("damage").innerHTML += builtHtml("dinput","dmultiply",dname,dmultiply, index,``, dlt);
+    console.log();
     index++;
     dStart();
   })

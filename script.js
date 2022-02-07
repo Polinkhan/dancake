@@ -4,7 +4,8 @@ let dmultiply = [];
 let dtotalValue = [];
 let index = 0;
 let multiply = [
-  190, 190, 24.5, 24.5, 196, 196, 125, 125, 108, 84, 35, 108, 108, 100, 100, 100, 100, 50, 50, 30, 30, 30, 10, 10, 10, 10, 15, 15, 15, 33, 100, 100, 100,
+  190, 190, 24.5, 24.5, 196, 196, 125, 125, 108, 84, 35, 108, 108, 100, 100,
+  100, 100, 50, 50, 30, 30, 30, 10, 10, 10, 10, 15, 15, 15, 33, 100, 100, 100,
 ];
 let totalValue = [];
 let totalOrder = [];
@@ -44,12 +45,13 @@ let name = [
   "কাপুচিনো কুকিজ (০০গ্রাম)",
   "বাটার কুকিজ (০০গ্রাম)",
 ];
+let flag = [];
 var html = ``;
 let newdiv = ``;
 let htmlbounce = `<div class="x">-</div><input type="number" value="" autocomplete="off" class="bounce">`;
-let dlt = `<div class="dlt_item"><button class="dlt_btn"></button></div>`
+let dlt = `<div class="dlt_item"><button class="dlt_btn"></button></div>`;
 
-function builtHtml(name,multiply,cname, cprice, index, bounce,dltbtn) {
+function builtHtml(name, multiply, cname, cprice, index, bounce, dltbtn) {
   return `<div class="box"><label for="" class="label">${cname[index]}</label>
 <input type="number" value="" autocomplete="off" class="${name}">
 ${bounce}<div class="x">x</div><div class="index">${index}</div>
@@ -58,13 +60,14 @@ ${bounce}<div class="x">x</div><div class="index">${index}</div>
 }
 
 function loadAll() {
-  document.getElementById("date").innerText = (new Date().toLocaleDateString());
+  document.getElementById("date").innerText = new Date().toLocaleDateString();
   let sname = document.getElementById("dname");
   for (let i = 0; i < row; i++) {
     sname.innerHTML += `<option value="${name[i]}">${name[i]}</option>`;
+    flag[i] = false;
     totalValue[i] = 0;
     dtotalValue[i] = 0;
-    html += builtHtml("input","multiply",name, multiply, i, htmlbounce,``);
+    html += builtHtml("input", "multiply", name, multiply, i, htmlbounce, ``);
   }
   sname.innerHTML += `<option value="অন্যান্য">অন্যান্য</option>`;
   document.getElementById("container").innerHTML = html;
@@ -76,19 +79,18 @@ function fulltotal() {
   let dtemp = 0;
   let order = 0;
   let bounce = 0;
-  for(let i of totalValue){
-    if(i!=null)temp+=i;
+  for (let i of totalValue) {
+    if (i != null) temp += i;
   }
-  for(let i of totalBounce){
-    if(i!=null)bounce+=i;
+  for (let i of totalBounce) {
+    if (i != null) bounce += i;
   }
-  for(let i of totalOrder){
-    if(i!=null)order+=i;
+  for (let i of totalOrder) {
+    if (i != null) order += i;
   }
-  for(let i of dtotalValue){
-    if(i!=null)dtemp+=i;
+  for (let i of dtotalValue) {
+    if (i != null) dtemp += i;
   }
-  console.log(totalOrder);
   document.getElementById("totalOrder").innerText = order;
   document.getElementById("totalBounce").innerText = bounce;
   document.getElementById("totalDamage").innerText = dtemp;
@@ -103,13 +105,11 @@ function setValue(point, cname) {
   let total;
   if (cname == "bounce") {
     total = (point.value - inVal) * multi;
-    totalOrder[index] = point.value*multi;
-    console.log("order");
+    totalOrder[index] = point.value * multi;
   }
   if (cname == "input") {
     total = (inVal - point.value) * multi;
-    totalBounce[index] = point.value*multi;
-    console.log("bounce");
+    totalBounce[index] = point.value * multi;
   }
   totalValue[index] = total;
   output.innerText = " = " + total;
@@ -126,8 +126,42 @@ function dsetValue(point) {
   fulltotal();
 }
 
+function checkFlag(point) {
+  return point.parentNode.getElementsByClassName("index")[0].innerText;
+}
+function displayBlock(point, cname, css) {
+  $(point.parentNode.getElementsByClassName(cname)[0]).css("display", css);
+}
+
 function Start() {
   $(document).ready(function () {
+    $(".label").click(function () {
+      let index = checkFlag(this);
+      if (!flag[index]) {
+        $(this).css("max-width", "140px");
+        $(this).css("min-width", "140px");
+        $(this.parentNode).css("height", "55px");
+        $(this.parentNode).css("transition", ".3s all ease");
+        displayBlock(this, "input", "block");
+        displayBlock(this, "bounce", "block");
+        displayBlock(this, "dinput", "block");
+        displayBlock(this, "display", "block");
+        displayBlock(this, "multiply", "block");
+        displayBlock(this, "x", "block");
+        flag[index] = true;
+      } else {
+        $(this).css("max-width", "100%");
+        $(this.parentNode).css("height", "35px");
+        $(this.parentNode).css("transition", ".3s all ease");
+        displayBlock(this, "input", "none");
+        displayBlock(this, "bounce", "none");
+        displayBlock(this, "dinput", "none");
+        displayBlock(this, "display", "none");
+        displayBlock(this, "multiply", "none");
+        displayBlock(this, "x", "none");
+        flag[index] = false;
+      }
+    });
     $(".input").keyup(function () {
       setValue(this, "bounce");
     });
@@ -141,9 +175,10 @@ function dStart() {
     $(".dinput").keyup(function () {
       dsetValue(this);
     });
-    $(".dlt_btn").click(function(){
+    $(".dlt_btn").click(function () {
       this.parentNode.parentNode.style.display = "none";
-      let index = this.parentNode.parentNode.getElementsByClassName("index")[0].innerText;
+      let index =
+        this.parentNode.parentNode.getElementsByClassName("index")[0].innerText;
       dtotalValue[index] = 0;
       fulltotal();
     });
@@ -157,7 +192,7 @@ $(document).ready(function () {
   let dnewPrice;
   $(".name").keyup(function () {
     if (this.value != "") {
-    newName = this;
+      newName = this;
     }
   });
   $(".price").keyup(function () {
@@ -166,7 +201,7 @@ $(document).ready(function () {
   $(".dprice").keyup(function () {
     dnewPrice = this;
   });
-  $("#submit").click(function() {
+  $("#submit").click(function () {
     name[row] = newName.value;
     multiply[row] = parseInt(newPrice.value);
     document.getElementById("container").innerHTML += builtHtml(
@@ -182,12 +217,19 @@ $(document).ready(function () {
     Start();
   });
   $("#dsubmit").click(function () {
-    location.href="#dsubmit";
+    location.href = "#dsubmit";
     dname[index] = $("#dname").val();
     dmultiply[index] = parseInt(dnewPrice.value);
-    document.getElementById("damage").innerHTML += builtHtml("dinput","dmultiply",dname,dmultiply, index,``, dlt);
-    console.log();
+    document.getElementById("damage").innerHTML += builtHtml(
+      "dinput",
+      "dmultiply",
+      dname,
+      dmultiply,
+      index,
+      ``,
+      dlt
+    );
     index++;
     dStart();
-  })
+  });
 });

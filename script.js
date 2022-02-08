@@ -46,6 +46,7 @@ let name = [
   "বাটার কুকিজ (০০গ্রাম)",
 ];
 let flag = [];
+let dflag = [];
 var html = ``;
 let newdiv = ``;
 let htmlbounce = `<div class="x">-</div><input type="number" value="" autocomplete="off" class="bounce">`;
@@ -132,33 +133,36 @@ function checkFlag(point) {
 function displayBlock(point, cname, css) {
   $(point.parentNode.getElementsByClassName(cname)[0]).css("display", css);
 }
+function boxcss(point, css) {
+  if (css == "block") {
+    $(point).css("max-width", "140px");
+    $(point).css("min-width", "140px");
+    $(point.parentNode).css("height", "55px");
+    $(point.parentNode).css("transition", ".3s all ease");
+  }
+  if (css == "none") {
+    $(point).css("max-width", "100%");
+    $(point.parentNode).css("height", "35px");
+    $(point.parentNode).css("transition", ".3s all ease");
+  }
+}
 
 function Start() {
   $(document).ready(function () {
     $(".label").click(function () {
       let index = checkFlag(this);
+      let allcname = ["input", "bounce", "dinput", "display", "multiply", "x"];
       if (!flag[index]) {
-        $(this).css("max-width", "140px");
-        $(this).css("min-width", "140px");
-        $(this.parentNode).css("height", "55px");
-        $(this.parentNode).css("transition", ".3s all ease");
-        displayBlock(this, "input", "block");
-        displayBlock(this, "bounce", "block");
-        displayBlock(this, "dinput", "block");
-        displayBlock(this, "display", "block");
-        displayBlock(this, "multiply", "block");
-        displayBlock(this, "x", "block");
+        boxcss(this, "block");
+        for (let x of allcname) {
+          displayBlock(this, x, "block");
+        }
         flag[index] = true;
       } else {
-        $(this).css("max-width", "100%");
-        $(this.parentNode).css("height", "35px");
-        $(this.parentNode).css("transition", ".3s all ease");
-        displayBlock(this, "input", "none");
-        displayBlock(this, "bounce", "none");
-        displayBlock(this, "dinput", "none");
-        displayBlock(this, "display", "none");
-        displayBlock(this, "multiply", "none");
-        displayBlock(this, "x", "none");
+        boxcss(this, "none");
+        for (let x of allcname) {
+          displayBlock(this, x, "none");
+        }
         flag[index] = false;
       }
     });
@@ -172,6 +176,23 @@ function Start() {
 }
 function dStart() {
   $(document).ready(function () {
+    $(".label").click(function () {
+      let index = checkFlag(this);
+      let allcname = ["input", "bounce", "dinput", "display", "multiply", "x"];
+      if (!dflag[index]) {
+        boxcss(this, "block");
+        for (let x of allcname) {
+          displayBlock(this, x, "block");
+        }
+        dflag[index] = true;
+      } else {
+        boxcss(this, "none");
+        for (let x of allcname) {
+          displayBlock(this, x, "none");
+        }
+        dflag[index] = false;
+      }
+    });
     $(".dinput").keyup(function () {
       dsetValue(this);
     });
@@ -220,6 +241,7 @@ $(document).ready(function () {
     location.href = "#dsubmit";
     dname[index] = $("#dname").val();
     dmultiply[index] = parseInt(dnewPrice.value);
+    dflag[index] = false;
     document.getElementById("damage").innerHTML += builtHtml(
       "dinput",
       "dmultiply",
